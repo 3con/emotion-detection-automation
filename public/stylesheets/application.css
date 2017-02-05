@@ -1,0 +1,37 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+img {
+    padding: 0;
+    display: block;
+    margin: 0 auto;
+    max-height: 100%;
+    max-width: 100%;
+}
+
+.hidden {
+  position:absolute;
+  width:320px;
+  height:240px;
+  right: -500px;
+  visibility:hidden;
+}
+
+.happy { background-color: #5FCC77 }
+.sad { background-color: #5A77AA}
+.angry { background-color: #77322F }
+.confused { background-color: #DBA547 }
+.surprised { background-color: #CF4377 }
+.disgusted { background-color: #743377 }
+.calm { background-color: #FCFFF5 }
+.unknown { background-color: #4BCCC6 }
+
+body {
+  width: 100%;
+  transition: background 1s linear;
+  -webkit-transition: background 1s linear;
+  -moz-transition: background 1s linear;
+}
