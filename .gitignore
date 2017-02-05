@@ -1,0 +1,4 @@
+.envrc
+.byebug_history
+node_modules/
+/tmp/

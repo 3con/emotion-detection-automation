@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>The Emotion Detection Automation</title>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"
+    			  integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+    			  crossorigin="anonymous"></script>
+
+    <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-39711596-6', 'auto');
+    ga('send', 'pageview');
+    </script>
+
+    <style>
+    html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+    }
+
+    img {
+        padding: 0;
+        display: block;
+        margin: 0 auto;
+        max-height: 100%;
+        max-width: 100%;
+    }
+
+    .hidden {
+    	position:absolute;
+    	width:320px;
+    	height:240px;
+      right: -500px;
+      visibility:hidden;
+    }
+
+    .happy { background-color: #5FCC77 }
+    .sad { background-color: #5A77AA}
+    .angry { background-color: #77322F }
+    .confused { background-color: #DBA547 }
+    .surprised { background-color: #CF4377 }
+    .disgusted { background-color: #743377 }
+    .calm { background-color: #FCFFF5 }
+    .unknown { background-color: #4BCCC6 }
+    </style>
+  </head>
+
+  <body>
+    <%= yield %>
+  </body>
+
+</html>
