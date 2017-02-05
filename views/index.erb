@@ -1,28 +1,23 @@
 <script src="webcam.js"></script>
 
 <div id="my_camera" class="hidden" ></div>
-<img id="emotion" />
-<a href="javascript:void(loop_snapshot())">Start</a>
-<button id="button" type="button">Emotion Detect</button>
+<img id="emotion" src='/images/unknown.png'>
+<button id="button" type="button">Detect</button>
 
 
 <script language="JavaScript">
     Webcam.attach('#my_camera');
 
+    var running
+
 		jQuery('#button').on('touchstart mousedown', function(event) {
-		  e.preventDefault('down')
-			alert('down')
+			running = true
+			loop_snapshot()
 		})
 
 		jQuery('#button').on('touchstop mouseup', function(event) {
-		  e.preventDefault()
-			alert('up')
+			running = false
 		})
-
-
-    // Webcam.on('load', function() {
-    //     loop_snapshot()
-    // })
 
     function take_snapshot() {
         Webcam.snap( function( data_uri ) {
@@ -36,8 +31,13 @@
         })
     }
 
-    function loop_snapshot(){
-        take_snapshot()
-        setTimeout(loop_snapshot, 1000)
+    function loop_snapshot() {
+			if (!running) {
+				jQuery("#emotion").attr( 'src', '/images/unknown.png')
+				jQuery('body').removeClass()
+        return
+			}
+      take_snapshot()
+      setTimeout(loop_snapshot, 1000)
     }
 </script>
