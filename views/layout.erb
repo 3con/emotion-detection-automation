@@ -62,4 +62,21 @@
     <%= yield %>
   </body>
 
+  <script>
+    jQuery.preloadImages = function() {
+        for (var i = 0; i < arguments.length; i++) {
+            jQuery("<img />").attr("src", arguments[i])
+        }
+    }
+
+    jQuery.preloadImages(
+        "/images/happy.png",
+        "/images/sad.png",
+        "/images/angry.png",
+        "/images/confused.png",
+        "/images/disgusted.png",
+        "/images/unknown.png",
+        "/images/surprises.png"
+    );
+  </script>
 </html>
