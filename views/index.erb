@@ -1,13 +1,23 @@
 <script src="webcam.js"></script>
 
-
 <div id="my_camera" class="hidden"></div>
-<img id="emotion" src='/images/unknown.png'>
-<button id="button" class="btn-big-red" type="button">Detect</button>
 
+<div class="emotion-container">
+  <img id="emotion" src='/images/unknown.png'>
+</div>
+
+<div class='controls'>
+  <button id="button" class="btn-big-red" type="button" style="display:none;">Detect Emotion</button>
+  <p id="button-prompt">Enable access to camera to see the big red button</p>
+</div>
 
 <script language="JavaScript">
     Webcam.attach('#my_camera');
+
+    Webcam.on( 'live', function() {
+      jQuery('#button').show()
+      jQuery('#button-prompt').hide()
+    })
 
     var running
 

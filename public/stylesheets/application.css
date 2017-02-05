@@ -35,3 +35,11 @@ body {
   -webkit-transition: background 1s linear;
   -moz-transition: background 1s linear;
 }
+
+.controls {
+  position: fixed;
+  bottom: 3em;
+  text-align:center;
+  margin:auto;
+  width:100%;
+}
