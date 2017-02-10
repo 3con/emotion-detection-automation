@@ -5,10 +5,11 @@ html, body {
 }
 
 .hidden {
-  position:absolute;
+  position:fixed;
   width:320px;
   height:240px;
-  right: -500px;
+  left: -500px;
+  top: -500px;
   visibility:hidden;
 }
 
@@ -26,12 +27,4 @@ body {
   transition: background 1s linear;
   -webkit-transition: background 1s linear;
   -moz-transition: background 1s linear;
-}
-
-.controls {
-  position: fixed;
-  bottom: 3em;
-  text-align:center;
-  margin:auto;
-  width:100%;
 }
