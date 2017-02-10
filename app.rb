@@ -18,7 +18,6 @@ post '/' do
   emotions = emotions.flatten
 
   emotion = EmotionAnalyzer.new(emotions).call
-  emotion = emotion.type.downcase
 
   content_type :json
   { emotion: emotion }.to_json

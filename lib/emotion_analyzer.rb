@@ -4,6 +4,9 @@ class EmotionAnalyzer
   end
 
   def call
-    @emotions.first
+    return 'Unknown' if @emotions.empty?
+
+    emotion = @emotions.first
+    emotion.type.downcase
   end
 end
