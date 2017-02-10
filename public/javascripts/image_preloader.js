@@ -11,5 +11,5 @@ preloadImages(
   '/images/confused.png',
   '/images/disgusted.png',
   '/images/unknown.png',
-  '/images/surprises.png'
+  '/images/surprised.png'
 )
