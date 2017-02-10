@@ -35,10 +35,40 @@
   <div class='emotion-controls'>
     <button id="button" class="btn-big-red" type="button" style="display:none;">Detect Emotion</button>
     <p id="button-prompt" class="emotion-controls-prompt">Enable access to camera to see the big red button</p>
+
+    <div>
+      <input id="fallback-input" type="file" accept="image/*">
+    </div>
+
   </div>
 </div>
 
 <script language="JavaScript">
+
+    jQuery("#fallback-input").on('change', function(event) {
+      var file = event.target.files[0]
+      var reader = new FileReader()
+
+      var data_uri
+
+      reader.addEventListener("load", function () {
+        data_uri = reader.result
+
+        jQuery.post("/", { data_uri: data_uri } )
+          .done( function( data ) {
+              console.log(data)
+              var emotion = data.emotion
+              jQuery("#emotion").attr( 'src', '/images/' + emotion + '.png')
+              jQuery('body').removeClass().addClass(emotion);
+        })
+
+      }, false);
+
+      if (file) {
+        reader.readAsDataURL(file);
+      }
+    })
+
     Webcam.attach('#my_camera');
 
     Webcam.on( 'live', function() {
