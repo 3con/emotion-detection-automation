@@ -33,50 +33,61 @@
   </div>
 
   <div class='emotion-controls'>
-    <button id="button" class="btn-big-red" type="button" style="display:none;">Detect Emotion</button>
-    <p id="button-prompt" class="emotion-controls-prompt">Enable access to camera to see the big red button</p>
+    <div class="emotion-controls-live" style="display:none;">
+      <button id="button" class="btn-big-red" type="button">Detect Emotion</button>
+      <p>press and hold to live detect from camera</p>
+    </div>
 
-    <div>
+    <div class="emotion-controls-fallback">
       <input id="fallback-input" type="file" accept="image/*">
+      <p id='fallback-status'></p>
+      <p>Choose a picture for Emotion Detection</p>
+      <p>Enable access to camera for live analysis</p>
     </div>
 
   </div>
 </div>
 
+<script>
+  Webcam.attach('#my_camera');
+
+  Webcam.on( 'live', function() {
+    jQuery('.emotion-controls-live').show()
+    jQuery('.emotion-controls-fallback').hide()
+  })
+</script>
+
+
+<script>
+jQuery("#fallback-input").on('change', function(event) {
+  var file = event.target.files[0]
+  var reader = new FileReader()
+  var data_uri
+
+  jQuery("#fallback-status").text('Detecting Emotion...')
+
+  reader.addEventListener("load", function () {
+    data_uri = reader.result
+
+    jQuery.post("/", { data_uri: data_uri } )
+      .done( function( data ) {
+          console.log(data)
+          var emotion = data.emotion
+          jQuery("#emotion").attr( 'src', '/images/' + emotion + '.png')
+          jQuery('body').removeClass().addClass(emotion);
+          event.target.value = ''
+          jQuery("#fallback-status").text('')
+    })
+
+  }, false);
+
+  if (file) {
+    reader.readAsDataURL(file);
+  }
+})
+</script>
+
 <script language="JavaScript">
-
-    jQuery("#fallback-input").on('change', function(event) {
-      var file = event.target.files[0]
-      var reader = new FileReader()
-
-      var data_uri
-
-      reader.addEventListener("load", function () {
-        data_uri = reader.result
-
-        jQuery.post("/", { data_uri: data_uri } )
-          .done( function( data ) {
-              console.log(data)
-              var emotion = data.emotion
-              jQuery("#emotion").attr( 'src', '/images/' + emotion + '.png')
-              jQuery('body').removeClass().addClass(emotion);
-              event.target.value = ''
-        })
-
-      }, false);
-
-      if (file) {
-        reader.readAsDataURL(file);
-      }
-    })
-
-    Webcam.attach('#my_camera');
-
-    Webcam.on( 'live', function() {
-      jQuery('#button').show()
-      jQuery('#button-prompt').hide()
-    })
-
     var running
 
 		jQuery('#button').on('touchstart mousedown', function(event) {
