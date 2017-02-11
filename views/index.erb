@@ -60,6 +60,7 @@
               var emotion = data.emotion
               jQuery("#emotion").attr( 'src', '/images/' + emotion + '.png')
               jQuery('body').removeClass().addClass(emotion);
+              event.target.value = ''
         })
 
       }, false);
