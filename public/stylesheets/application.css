@@ -4,6 +4,13 @@ html, body {
     padding: 0;
 }
 
+body {
+  width: 100%;
+  transition: background 1s linear;
+  -webkit-transition: background 1s linear;
+  -moz-transition: background 1s linear;
+}
+
 .hidden {
   position:fixed;
   width:320px;
@@ -11,20 +18,4 @@ html, body {
   left: -500px;
   top: -500px;
   visibility:hidden;
-}
-
-.happy { background-color: #5FCC77 }
-.sad { background-color: #5A77AA}
-.angry { background-color: #77322F }
-.confused { background-color: #DBA547 }
-.surprised { background-color: #CF4377 }
-.disgusted { background-color: #743377 }
-.calm { background-color: #FCFFF5 }
-.unknown { background-color: #4BCCC6 }
-
-body {
-  width: 100%;
-  transition: background 1s linear;
-  -webkit-transition: background 1s linear;
-  -moz-transition: background 1s linear;
 }
