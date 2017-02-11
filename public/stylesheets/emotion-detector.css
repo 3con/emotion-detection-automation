@@ -20,11 +20,11 @@
   padding: 3em;
 }
 
-.happy { background-color: #5FCC77 }
-.sad { background-color: #5A77AA}
+.happy { background-color: #FFCC00 }
+.sad { background-color: #91AABA}
 .angry { background-color: #77322F }
-.confused { background-color: #DBA547 }
-.surprised { background-color: #CF4377 }
-.disgusted { background-color: #743377 }
-.calm { background-color: #FCFFF5 }
-.unknown { background-color: #4BCCC6 }
+.confused { background-color: #F98704 }
+.surprised { background-color: #F25DAF }
+.disgusted { background-color: #98BA2A }
+.calm { background-color: #B3E6FF }
+.unknown { background-color: #EFEFDE }
