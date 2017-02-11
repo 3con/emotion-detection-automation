@@ -22,3 +22,7 @@ post '/' do
   content_type :json
   { emotion: emotion }.to_json
 end
+
+get '/about' do
+  erb :about
+end
