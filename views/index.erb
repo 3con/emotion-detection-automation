@@ -39,7 +39,8 @@
     </div>
 
     <div class="emotion-controls-fallback">
-      <input id="fallback-input" type="file" accept="image/*">
+      <input id="fallback-input" type="file" accept="image/*" style="display:none;">
+      <button class="btn-big-red" onclick="document.getElementById('fallback-input').click()">Detect Emotion</button>
       <p id='fallback-status'></p>
       <p>Choose a picture for Emotion Detection</p>
       <p>Enable access to camera for live analysis</p>
